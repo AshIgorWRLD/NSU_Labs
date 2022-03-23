@@ -1,0 +1,15 @@
+.idea/
+*.xml
+
+.target/
+.classes/
+*.class
+.generated-sources
+
+.gradle
+
+gradle
+
+build
+
+*.iml
