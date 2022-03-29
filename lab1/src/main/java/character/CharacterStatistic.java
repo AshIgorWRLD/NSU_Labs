@@ -19,7 +19,6 @@ public class CharacterStatistic implements Comparable<CharacterStatistic> {
         amount++;
     }
 
-
     @Override
     public boolean equals(Object other) {
         if (this == other) {
