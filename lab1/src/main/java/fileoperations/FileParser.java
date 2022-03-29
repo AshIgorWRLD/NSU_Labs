@@ -1,11 +1,9 @@
 package fileoperations;
 
-import character.CharacterStatistic;
 import character.CharacterStatisticCounter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
-import java.util.Set;
 
 @Slf4j
 public class FileParser {
@@ -40,18 +38,12 @@ public class FileParser {
     }
 
     public void parse(FileInputStream fileInputStream) {
-
         try (Reader reader = new InputStreamReader(fileInputStream)) {
             parseText(reader);
-            Set<CharacterStatistic> statisticSet = characterStatisticCounter.mapFile();
-            statisticSet.forEach(x -> System.out.println(x.getValue() + " " + x.getAmount()));
-            System.out.println(characterStatisticCounter.getAllCharactersAmount());
-            CSVGenerator.generateAnswerFile(statisticSet,
+            CSVGenerator.generateAnswerFile(characterStatisticCounter.mapFile(),
                     characterStatisticCounter.getAllCharactersAmount());
-
         } catch (IOException e) {
             log.error("CAN'T CREATE READER STREAM OF FILE INPUT STREAM", e);
         }
-
     }
 }
