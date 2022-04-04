@@ -5,12 +5,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CharacterStatistic implements Comparable<CharacterStatistic> {
+public class WordStatistic implements Comparable<WordStatistic> {
 
-    private Character value;
+    private String value;
     private int amount;
 
-    public CharacterStatistic(Character value) {
+    public WordStatistic(String value) {
         this.value = value;
         this.amount = 1;
     }
@@ -28,9 +28,9 @@ public class CharacterStatistic implements Comparable<CharacterStatistic> {
             return false;
         }
 
-        CharacterStatistic characterStatistic = (CharacterStatistic) other;
+        WordStatistic characterStatistic = (WordStatistic) other;
         if (characterStatistic.value.equals(value)) {
-            ((CharacterStatistic) other).increase();
+            ((WordStatistic) other).increase();
             return true;
         }
         return false;
@@ -38,11 +38,11 @@ public class CharacterStatistic implements Comparable<CharacterStatistic> {
 
     @Override
     public int hashCode() {
-        return value;
+        return value.hashCode();
     }
 
     @Override
-    public int compareTo(CharacterStatistic other) {
+    public int compareTo(WordStatistic other) {
         int result = amount - other.amount;
         if (result != 0) {
             return result / Math.abs(result);

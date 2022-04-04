@@ -1,6 +1,6 @@
 package fileoperations;
 
-import character.CharacterStatistic;
+import character.WordStatistic;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
@@ -13,7 +13,7 @@ public class CSVGenerator {
     private static final String CSV_SEPARATION_SYMBOL = ",";
     private static final int PERCENTAGE_COEFFICIENT = 100;
 
-    public static void generateAnswerFile(Set<CharacterStatistic> statisticSet, int averageAmount) {
+    public static void generateAnswerFile(Set<WordStatistic> statisticSet, int averageAmount) {
         File csvFile = new File(PATH_TO_CSV_FILE_DIRECTORY);
         try {
             csvFile.createNewFile();
@@ -22,23 +22,23 @@ public class CSVGenerator {
             return;
         }
         try (FileOutputStream fileOutputStream = new FileOutputStream(PATH_TO_CSV_FILE_DIRECTORY)) {
-            PrintStream printStream = new PrintStream(fileOutputStream);
-            printStream.println(processCharacterCharacteristic(statisticSet, averageAmount));
+            processCharacterCharacteristic(statisticSet, averageAmount,
+                    new PrintStream(fileOutputStream));
         } catch (IOException e) {
             log.error("CAN'T CREATE OUTPUT STREAM OF CSV FILE");
         }
     }
 
-    private static String processCharacterCharacteristic(Set<CharacterStatistic> statisticSet,
-                                                       int averageAmount) {
-        StringBuilder stringBuilder = new StringBuilder("VALUE,AMOUNT,PERCENTAGE\n");
-        statisticSet.forEach(x -> stringBuilder
-                .append(x.getValue())
-                .append(CSV_SEPARATION_SYMBOL)
+    private static void processCharacterCharacteristic(Set<WordStatistic> statisticSet,
+                                                       int averageAmount, PrintStream printStream) {
+        printStream.println("VALUE,AMOUNT,PERCENTAGE");
+        statisticSet.forEach(x -> {
+            StringBuilder stringBuilder = new StringBuilder(x.getValue());
+            stringBuilder.append(CSV_SEPARATION_SYMBOL)
                 .append(x.getAmount())
                 .append(CSV_SEPARATION_SYMBOL)
-                .append((double) x.getAmount() / averageAmount * PERCENTAGE_COEFFICIENT)
-                .append("\n"));
-        return stringBuilder.toString();
+                .append((double) x.getAmount() / averageAmount * PERCENTAGE_COEFFICIENT);
+            printStream.println(stringBuilder);
+        });
     }
 }
