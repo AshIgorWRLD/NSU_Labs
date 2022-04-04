@@ -1,0 +1,13 @@
+PUSH 30
+DEFINE A 2
+PUSH A
+/
+# asdadaldsald
+#assdaldm
+PUSH 3
+PUSH 5
+*
++
+PUSH 29
+-
+PRINT

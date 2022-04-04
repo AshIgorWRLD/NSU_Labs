@@ -1,0 +1,6 @@
+LOAD src\test\resources\loadableFile1.txt
++
++
++
++
++

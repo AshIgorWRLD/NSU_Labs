@@ -1,0 +1,2 @@
+PUSH 2
+LOAD src\test\resources\wrongLoadableFile.txt

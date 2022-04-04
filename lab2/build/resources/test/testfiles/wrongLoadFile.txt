@@ -1,0 +1,2 @@
+PUSH 3
+LOAD src\test\resources\loadableFile3.txt

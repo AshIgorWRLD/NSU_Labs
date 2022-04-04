@@ -22,20 +22,16 @@ public class CSVGenerator {
             return;
         }
         try (FileOutputStream fileOutputStream = new FileOutputStream(PATH_TO_CSV_FILE_DIRECTORY)) {
-
             PrintStream printStream = new PrintStream(fileOutputStream);
-            StringBuilder stringBuilder = new StringBuilder();
-            processCharacterCharacteristic(stringBuilder, statisticSet, averageAmount);
-            printStream.println(stringBuilder);
+            printStream.println(processCharacterCharacteristic(statisticSet, averageAmount));
         } catch (IOException e) {
             log.error("CAN'T CREATE OUTPUT STREAM OF CSV FILE");
         }
     }
 
-    private static void processCharacterCharacteristic(StringBuilder stringBuilder,
-                                                       Set<CharacterStatistic> statisticSet,
+    private static String processCharacterCharacteristic(Set<CharacterStatistic> statisticSet,
                                                        int averageAmount) {
-        stringBuilder.append("VALUE,AMOUNT,PERCENTAGE\n");
+        StringBuilder stringBuilder = new StringBuilder("VALUE,AMOUNT,PERCENTAGE\n");
         statisticSet.forEach(x -> stringBuilder
                 .append(x.getValue())
                 .append(CSV_SEPARATION_SYMBOL)
@@ -43,5 +39,6 @@ public class CSVGenerator {
                 .append(CSV_SEPARATION_SYMBOL)
                 .append((double) x.getAmount() / averageAmount * PERCENTAGE_COEFFICIENT)
                 .append("\n"));
+        return stringBuilder.toString();
     }
 }

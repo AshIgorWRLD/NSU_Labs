@@ -1,0 +1,8 @@
+LOAD src\test\resources\loadableFile2.txt
+/
++
+PUSH 3
+SAVE src\test\resources\savedFile.txt
+PUSH 4
+LOAD src\test\resources\savedFile.txt
+AVG 3
