@@ -1,9 +1,11 @@
 package ru.nsu.commands;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import ru.nsu.exceptions.OperationException;
+import ru.nsu.globalstrings.Constants;
 import ru.nsu.globalstrings.Messages;
 import ru.nsu.stackcalculator.Calculator;
-import ru.nsu.stackcalculator.Operations;
 
 @Slf4j
 public class MultiplicationCommand extends Command {
@@ -12,14 +14,18 @@ public class MultiplicationCommand extends Command {
     @Override
     public boolean isCommandStructureRight(String[] commandLine) {
         if (commandLine.length != COMMAND_LENGTH) {
-            log.info(Messages.COMMAND_LENGTH_EXC);
+            log.error(Messages.COMMAND_LENGTH_EXC);
             return false;
         }
         return true;
     }
 
+    @SneakyThrows
     @Override
     public void doCommand(String[] commandLine, Calculator calculator) {
-        calculator.doOperation(Operations.MUL);
+        if (calculator.getStackSize() < Constants.MINIMAL_OPERATION_ELEMENTS_NUMBER) {
+            throw new OperationException();
+        }
+        calculator.push(calculator.pop() * calculator.pop());
     }
 }

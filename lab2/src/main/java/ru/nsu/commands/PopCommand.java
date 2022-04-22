@@ -11,7 +11,7 @@ public class PopCommand extends Command {
     @Override
     public boolean isCommandStructureRight(String[] commandLine) {
         if (commandLine.length != COMMAND_LENGTH) {
-            log.info(Messages.COMMAND_LENGTH_EXC);
+            log.error(Messages.COMMAND_LENGTH_EXC);
             return false;
         }
         return true;

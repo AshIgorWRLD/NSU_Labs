@@ -1,6 +1,8 @@
 package ru.nsu.commands;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import ru.nsu.exceptions.EmptyStackException;
 import ru.nsu.globalstrings.Messages;
 import ru.nsu.stackcalculator.Calculator;
 
@@ -11,14 +13,17 @@ public class PrintCommand extends Command {
     @Override
     public boolean isCommandStructureRight(String[] commandLine) {
         if (commandLine.length != COMMAND_LENGTH) {
-            log.info(Messages.COMMAND_LENGTH_EXC);
+            log.error(Messages.COMMAND_LENGTH_EXC);
             return false;
         }
         return true;
     }
 
     @Override
-    public void doCommand(String[] commandLine, Calculator calculator) {
-        calculator.print();
+    public void doCommand(String[] commandLine, Calculator calculator) throws EmptyStackException {
+        if (calculator.getStackSize() == 0) {
+            throw new EmptyStackException();
+        }
+        System.out.println(calculator.peek());
     }
 }

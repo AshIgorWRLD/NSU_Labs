@@ -1,59 +1,33 @@
 package ru.nsu.commandlistener;
 
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import ru.nsu.commanddictionary.CommandDictionary;
+import ru.nsu.commands.Command;
+import ru.nsu.exceptions.*;
 import ru.nsu.fabric.CommandFabric;
 import ru.nsu.globalstrings.Messages;
+import ru.nsu.globalstrings.Regexes;
 import ru.nsu.globalstrings.SplitSymbols;
 import ru.nsu.stackcalculator.Calculator;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Objects;
-import java.util.Scanner;
 
 @Slf4j
 @AllArgsConstructor
 public class CommandListener {
-    private static final String END_COMMAND = "END";
     private static final String COMMENT_SYMBOL = "#";
 
     private final CommandFabric commandFabric;
+    private final Calculator calculator;
 
-    public static CommandListener initCommandListener(Calculator calculator) {
-        CommandDictionary commandDictionary = new CommandDictionary();
-        commandDictionary.parseCommands();
-        CommandFabric commandFabric = new CommandFabric(commandDictionary.getDictionary(), calculator);
-        return new CommandListener(commandFabric);
-    }
-
-    public void fileScan(String fileName) {
-        try (FileReader fileReader = new FileReader(fileName)) {
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+    public void scan(InputStream inputStream) throws IOException, NoCommandException, EmptyStackException,
+            WrongElementsException, DivisionByZeroException, OperationException, NoSuchElementException {
+        try (Reader reader = new InputStreamReader(inputStream)) {
+            BufferedReader bufferedReader = new BufferedReader(reader);
             parseLines(bufferedReader);
             bufferedReader.close();
-        } catch (FileNotFoundException e) {
-            log.error(Messages.NO_FILE_EXC, e);
-        } catch (IOException e) {
-            log.error(Messages.READER_EXC, e);
-        }
-    }
-
-    public void commandLineScan() {
-        Scanner scanner = new Scanner(System.in);
-        String newLine;
-        while (true) {
-            newLine = scanner.nextLine();
-            if (Objects.equals(newLine, END_COMMAND)) {
-                return;
-            }
-            if (isComment(newLine)) {
-                continue;
-            }
-            commandFabric.parseCommand(newLine);
         }
     }
 
@@ -62,17 +36,24 @@ public class CommandListener {
                 split(SplitSymbols.EMPTY_PARSE_SYMBOL)[0], COMMENT_SYMBOL);
     }
 
-    private void parseLines(BufferedReader bufferedReader) {
+
+    private void parseLines(BufferedReader bufferedReader) throws IOException, NoCommandException,
+            EmptyStackException, WrongElementsException, DivisionByZeroException, OperationException,
+            NoSuchElementException {
         String newLine;
-        try {
-            while (!Objects.equals(newLine = bufferedReader.readLine(), null)) {
-                if (isComment(newLine)) {
-                    continue;
-                }
-                commandFabric.parseCommand(newLine);
+        while (!Objects.equals(newLine = bufferedReader.readLine(), null)) {
+            if (isComment(newLine)) {
+                continue;
             }
-        } catch (IOException e) {
-            log.error(Messages.BUFFERED_READER_EXC, e);
+            String[] commandLineElements = newLine.split(SplitSymbols.SPACE_PARSE_SYMBOL);
+            Command command = commandFabric.getCommand(commandLineElements[0]);
+            if (Objects.equals(command, null)) {
+                throw new NoCommandException();
+            }
+            if (!command.isCommandStructureRight(commandLineElements)) {
+                return;
+            }
+            command.doCommand(commandLineElements, calculator);
         }
     }
 }

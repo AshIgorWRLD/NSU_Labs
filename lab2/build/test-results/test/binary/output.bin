@@ -1,142 +1,126 @@
-]04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - 'PUSH' CLASS WAS UPLOADED
-Z04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - '/' CLASS WAS UPLOADED
-]04-04-2022 19:28:52 ERROR [Test worker] (Calculator.java:170) - WRONG LOGIC OF YOU COMMANDS
-Y04-04-2022 19:28:52  INFO [Test worker] (Calculator.java:31) - NO ELEMENT WITH NAME 'A'
-S04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:31) - NO SUCH COMMAND
-Z04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - '+' CLASS WAS UPLOADED
-m04-04-2022 19:28:52  INFO [Test worker] (CommandsUnitTest.java:36) - TEST: commandsMistakesTest - COMPLETED
-]04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - 'PUSH' CLASS WAS UPLOADED
-_04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - 'DEFINE' CLASS WAS UPLOADED
-Z04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - '-' CLASS WAS UPLOADED
-Z04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - '/' CLASS WAS UPLOADED
-c04-04-2022 19:28:52  INFO [Test worker] (CommandsUnitTest.java:27) - TEST: defineTest - COMPLETED
-]04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - 'LOAD' CLASS WAS UPLOADED
-&src\test\resources\loadableFile2.txt
-Z04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - '/' CLASS WAS UPLOADED
-Z04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - '+' CLASS WAS UPLOADED
-]04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - 'PUSH' CLASS WAS UPLOADED
-]04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - 'SAVE' CLASS WAS UPLOADED
-"src\test\resources\savedFile.txt
-\04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - 'AVG' CLASS WAS UPLOADED
-e04-04-2022 19:28:52  INFO [Test worker] (CommandsUnitTest.java:72) - TEST: saveFileTest - COMPLETED
-]04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - 'PUSH' CLASS WAS UPLOADED
-]04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - 'LOAD' CLASS WAS UPLOADED
-&src\test\resources\loadableFile3.txt
-M04-04-2022 19:28:52 ERROR [Test worker] (Calculator.java:93) - NO SUCH FILE
-�java.io.FileNotFoundException: src\test\resources\loadableFile3.txt (Не удается найти указанный файл)
-<	at java.base/java.io.FileInputStream.open0(Native Method)
-F	at java.base/java.io.FileInputStream.open(FileInputStream.java:211)
-H	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:153)
-H	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:108)
-=	at java.base/java.io.FileReader.<init>(FileReader.java:60)
-@	at ru.nsu.stackcalculator.Calculator.load(Calculator.java:90)
-@	at ru.nsu.commands.LoadCommand.doCommand(LoadCommand.java:24)
-E	at ru.nsu.fabric.CommandFabric.parseCommand(CommandFabric.java:39)
-P	at ru.nsu.commandlistener.CommandListener.parseLines(CommandListener.java:72)
-N	at ru.nsu.commandlistener.CommandListener.fileScan(CommandListener.java:36)
-B	at CommandsUnitTest.wrongLoadFileTest(CommandsUnitTest.java:61)
-T	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-f	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
-n	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-@	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
-\	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:725)
-[	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-�	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
-^	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
-l	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
-g	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
-�	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
-f	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
-�	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
-o	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
-v	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
-n	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
-]	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
-\	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:214)
-k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-v	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:210)
-m	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
-l	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:66)
-t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
-k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-O	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-k	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-_	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-@	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-�	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-O	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-k	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-_	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-@	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-�	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-O	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-k	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-_	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-�	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-w	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-s	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-p	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
-o	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-x	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-~	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-o	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-W	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
-W	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
-�	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
-�	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
-�	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
-i	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
-T	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-f	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
-n	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-@	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
-Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-j	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-y	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-8	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
-W	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)
-T	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-f	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
-n	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-@	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
-Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-�	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
-�	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
-Y	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
-l	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-[	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
-_	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
-_	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
-k	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
-5	at java.base/java.lang.Thread.run(Thread.java:831)
-j04-04-2022 19:28:52  INFO [Test worker] (CommandsUnitTest.java:63) - TEST: wrongLoadFileTest - COMPLETED
-]04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - 'LOAD' CLASS WAS UPLOADED
-&src\test\resources\loadableFile1.txt
-Z04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - '+' CLASS WAS UPLOADED
-e04-04-2022 19:28:52  INFO [Test worker] (CommandsUnitTest.java:45) - TEST: loadFileTest - COMPLETED
-]04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - 'PUSH' CLASS WAS UPLOADED
-Z04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - '+' CLASS WAS UPLOADED
-Z04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - '*' CLASS WAS UPLOADED
-e04-04-2022 19:28:52  INFO [Test worker] (CommandsUnitTest.java:18) - TEST: commentsTest - COMPLETED
-]04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - 'PUSH' CLASS WAS UPLOADED
-]04-04-2022 19:28:52  INFO [Test worker] (CommandFabric.java:48) - 'LOAD' CLASS WAS UPLOADED
-*src\test\resources\wrongLoadableFile.txt
-b04-04-2022 19:28:52  INFO [Test worker] (Calculator.java:146) - FILE SHOULD CONTAIN ONLY NUMBERS
-2
-m04-04-2022 19:28:52  INFO [Test worker] (CommandsUnitTest.java:54) - TEST: loadFileMistakesTest - COMPLETED
+]22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - 'PUSH' CLASS WAS UPLOADED
+_22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - 'DEFINE' CLASS WAS UPLOADED
+Z22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - '-' CLASS WAS UPLOADED
+Z22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - '/' CLASS WAS UPLOADED
+c22-04-2022 19:28:07  INFO [Test worker] (CommandsUnitTest.java:76) - TEST: defineTest - COMPLETED
+]22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - 'LOAD' CLASS WAS UPLOADED
+Z22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - '/' CLASS WAS UPLOADED
+Z22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - '+' CLASS WAS UPLOADED
+]22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - 'PUSH' CLASS WAS UPLOADED
+]22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - 'SAVE' CLASS WAS UPLOADED
+\22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - 'AVG' CLASS WAS UPLOADED
+f22-04-2022 19:28:07  INFO [Test worker] (CommandsUnitTest.java:180) - TEST: saveFileTest - COMPLETED
+]22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - 'PUSH' CLASS WAS UPLOADED
+]22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - 'LOAD' CLASS WAS UPLOADED
+c22-04-2022 19:28:07 ERROR [Test worker] (CommandsUnitTest.java:139) - UNABLE TO MAKE INPUT STREAM
+�java.io.FileNotFoundException: src\test\resources\loadableFile3.txt (Не удается найти указанный файл)
+<	at java.base/java.io.FileInputStream.open0(Native Method)
+F	at java.base/java.io.FileInputStream.open(FileInputStream.java:211)
+H	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:153)
+H	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:108)
+=	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+@	at ru.nsu.commands.LoadCommand.doCommand(LoadCommand.java:30)
+P	at ru.nsu.commandlistener.CommandListener.parseLines(CommandListener.java:56)
+J	at ru.nsu.commandlistener.CommandListener.scan(CommandListener.java:29)
+C	at CommandsUnitTest.wrongLoadFileTest(CommandsUnitTest.java:136)
+T	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+f	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+n	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+@	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+\	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:725)
+[	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+�	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+^	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+l	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+g	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+�	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+f	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+�	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+o	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+v	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+n	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+]	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+\	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:214)
+k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+v	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:210)
+m	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+l	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:66)
+t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+O	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+k	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+_	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+@	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+�	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+O	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+k	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+_	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+@	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+�	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+O	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+t	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+k	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+k	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+_	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+�	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+w	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+s	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+p	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+o	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+x	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+~	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+o	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+W	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+W	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+�	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+�	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+�	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+i	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+T	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+f	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+n	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+@	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+j	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+y	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+8	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+W	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)
+T	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+f	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+n	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+@	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+�	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+�	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+Y	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+l	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+[	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+_	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+_	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+k	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+5	at java.base/java.lang.Thread.run(Thread.java:831)
+k22-04-2022 19:28:07  INFO [Test worker] (CommandsUnitTest.java:154) - TEST: wrongLoadFileTest - COMPLETED
+]22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - 'LOAD' CLASS WAS UPLOADED
+Z22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - '+' CLASS WAS UPLOADED
+f22-04-2022 19:28:07  INFO [Test worker] (CommandsUnitTest.java:102) - TEST: loadFileTest - COMPLETED
+]22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - 'PUSH' CLASS WAS UPLOADED
+Z22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - '+' CLASS WAS UPLOADED
+Z22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - '*' CLASS WAS UPLOADED
+e22-04-2022 19:28:07  INFO [Test worker] (CommandsUnitTest.java:51) - TEST: commentsTest - COMPLETED
+]22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - 'PUSH' CLASS WAS UPLOADED
+]22-04-2022 19:28:07  INFO [Test worker] (CommandFabric.java:52) - 'LOAD' CLASS WAS UPLOADED
+n22-04-2022 19:28:07  INFO [Test worker] (CommandsUnitTest.java:128) - TEST: loadFileMistakesTest - COMPLETED

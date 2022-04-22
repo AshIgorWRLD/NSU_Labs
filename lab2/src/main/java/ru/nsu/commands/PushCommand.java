@@ -1,6 +1,8 @@
 package ru.nsu.commands;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import ru.nsu.exceptions.NoSuchElementException;
 import ru.nsu.globalstrings.Messages;
 import ru.nsu.globalstrings.Regexes;
 import ru.nsu.stackcalculator.Calculator;
@@ -13,18 +15,22 @@ public class PushCommand extends Command {
     @Override
     public boolean isCommandStructureRight(String[] commandLine) {
         if (commandLine.length != COMMAND_LENGTH) {
-            log.info(Messages.COMMAND_LENGTH_EXC);
+            log.error(Messages.COMMAND_LENGTH_EXC);
             return false;
         }
         return true;
     }
 
     @Override
-    public void doCommand(String[] commandLine, Calculator calculator) {
+    public void doCommand(String[] commandLine, Calculator calculator) throws NoSuchElementException {
         if (commandLine[VALUE_ELEMENT_POSITION].matches(Regexes.NUMBERS_IN_STRING)) {
             calculator.push(Double.parseDouble(commandLine[VALUE_ELEMENT_POSITION]));
             return;
         }
-        calculator.push(commandLine[VALUE_ELEMENT_POSITION]);
+        String name = commandLine[VALUE_ELEMENT_POSITION];
+        if (!calculator.isInDefinitionMap(name)) {
+            throw new NoSuchElementException();
+        }
+        calculator.push(calculator.getFromDefinitionMap(name));
     }
 }

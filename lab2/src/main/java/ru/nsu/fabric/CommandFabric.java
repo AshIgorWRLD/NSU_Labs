@@ -1,57 +1,54 @@
 package ru.nsu.fabric;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import ru.nsu.commands.Command;
 import ru.nsu.globalstrings.Messages;
 import ru.nsu.globalstrings.SplitSymbols;
 import ru.nsu.stackcalculator.Calculator;
 
+import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Properties;
 
 @Slf4j
 public class CommandFabric {
 
-    private final Map<String, String> commandDictionary;
-    private final Calculator calculator;
+    private static final String COMMANDS_PROPERTIES_PATH = "/commandPaths.properties";
+
     private final Map<String, Command> commands;
+    private final Properties commandsList;
 
-    public CommandFabric(Map<String, String> commandDictionary, Calculator calculator) {
-        this.commandDictionary = commandDictionary;
-        this.calculator = calculator;
+    @SneakyThrows
+    public CommandFabric() {
         this.commands = new HashMap<>();
+        this.commandsList = new Properties();
+        InputStream inputStream = CommandFabric.class
+                .getResourceAsStream(COMMANDS_PROPERTIES_PATH);
+        commandsList.load(inputStream);
     }
 
-    public void parseCommand(String commandLine) {
-        String[] subCommand = commandLine.split(SplitSymbols.SPACE_PARSE_SYMBOL);
-        if (Objects.equals(commandDictionary.get(subCommand[0]), null)) {
+    @SneakyThrows
+    public Command getCommand(String commandName) {
+        if (Objects.equals(commandsList.get(commandName), null)) {
             log.info(Messages.NO_COMMAND_EXC);
-            return;
+            return null;
         }
-        if (Objects.equals(commands.get(subCommand[0]), null)) {
-            createCommand(subCommand[0]);
+        if (Objects.equals(commands.get(commandName), null)) {
+            createCommand(commandName);
         }
-        Command command = commands.get(subCommand[0]);
-        if (command.isCommandStructureRight(subCommand)) {
-            command.doCommand(subCommand, calculator);
-        }
+        return commands.get(commandName);
     }
 
-    private void createCommand(String name) {
-        try {
-            Class<?> cls = Class.forName(commandDictionary.get(name));
-            Constructor<?> constructor = cls.getConstructor();
-            commands.put(name, (Command) constructor.newInstance());
-            log.info("'" + name + "' CLASS WAS UPLOADED");
-        } catch (ClassNotFoundException e) {
-            log.error(Messages.UNABLE_CLASS_LOAD_EXC, e);
-        } catch (NoSuchMethodException e) {
-            log.error(Messages.NO_CONSTRUCTOR_CLASS_LOAD_EXC, e);
-        } catch (InvocationTargetException | InstantiationException | IllegalAccessException e) {
-            log.error(Messages.UNABLE_CREATE_NEW_INSTANCE_EXC);
-        }
+    private void createCommand(String name) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+
+        Class<?> cls = Class.forName(String.valueOf(commandsList.get(name)));
+        Constructor<?> constructor = cls.getConstructor();
+        commands.put(name, (Command) constructor.newInstance());
+        log.info("'" + name + "' CLASS WAS UPLOADED");
     }
 }

@@ -14,12 +14,12 @@ public class DefineCommand extends Command {
     @Override
     public boolean isCommandStructureRight(String[] commandLine) {
         if (commandLine.length != COMMAND_LENGTH) {
-            log.info(Messages.COMMAND_LENGTH_EXC);
+            log.error(Messages.COMMAND_LENGTH_EXC);
             return false;
         }
         if (commandLine[NAME_ELEMENT_POSITION].matches(Regexes.NUMBERS_IN_STRING) ||
                 !commandLine[VALUE_ELEMENT_POSITION].matches(Regexes.NUMBERS_IN_STRING)) {
-            log.info(Messages.COMMAND_STRUCTURE_EXC);
+            log.error(Messages.COMMAND_STRUCTURE_EXC);
             return false;
         }
         return true;
